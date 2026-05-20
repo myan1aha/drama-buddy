@@ -1,0 +1,155 @@
+.drama-setup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%);
+}
+
+.drama-setup-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 80px;
+  background: rgba(20, 20, 35, 0.9);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.drama-setup-icon {
+  font-size: 72px;
+}
+
+.drama-setup-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.drama-setup-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: -8px;
+}
+
+.drama-setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 400px;
+  margin-top: 20px;
+}
+
+.drama-setup-input {
+  width: 100%;
+  padding: 16px 24px;
+  background: rgba(31, 41, 55, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.drama-setup-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+.drama-setup-input::placeholder {
+  color: #6b7280;
+}
+
+.drama-setup-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.drama-setup-btn:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7), 0 8px 24px rgba(79, 70, 229, 0.4);
+  transform: scale(1.02);
+}
+
+.drama-setup-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.drama-setup-hint {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.25);
+  margin-top: 16px;
+}
+
+/* iPad responsive */
+@media screen and (max-width: 1024px) {
+  .drama-setup-card {
+    padding: 40px 32px;
+    border-radius: 24px;
+    max-width: 90vw;
+  }
+
+  .drama-setup-icon {
+    font-size: 56px;
+  }
+
+  .drama-setup-title {
+    font-size: 28px;
+  }
+
+  .drama-setup-subtitle {
+    font-size: 16px;
+  }
+
+  .drama-setup-form {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .drama-setup-input {
+    padding: 14px 20px;
+    font-size: 17px;
+    min-height: 52px;
+  }
+
+  .drama-setup-btn {
+    padding: 16px;
+    font-size: 18px;
+    min-height: 52px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .drama-setup-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .drama-setup-icon {
+    font-size: 48px;
+  }
+
+  .drama-setup-title {
+    font-size: 24px;
+  }
+
+  .drama-setup-form {
+    max-width: 100%;
+  }
+}

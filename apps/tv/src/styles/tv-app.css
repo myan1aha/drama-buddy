@@ -1,0 +1,300 @@
+.tv-app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0a0a0f;
+}
+
+.tv-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.tv-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 32px;
+}
+
+.tv-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tv-control-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tv-control-btn:focus,
+.tv-control-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* 语音按钮特殊样式 */
+.tv-voice-btn {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+  font-weight: 600;
+}
+
+.tv-voice-btn:focus,
+.tv-voice-btn:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.tv-voice-btn.listening {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #fca5a5;
+  animation: tvVoicePulse 1.5s infinite;
+}
+
+@keyframes tvVoicePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+
+/* Pet Area - TV */
+.tv-pet-area {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  animation: petFloat 3s ease-in-out infinite;
+  z-index: 50;
+}
+
+.tv-pet-emoji {
+  font-size: 48px;
+}
+
+.tv-pet-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+@keyframes petFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Cast 状态提示 */
+.tv-cast-status {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 24px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 10px;
+  color: #c7d2fe;
+  font-size: 15px;
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  animation: castFadeIn 0.3s ease;
+}
+
+.tv-cast-badge {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 20px;
+  color: #86efac;
+  font-size: 13px;
+  z-index: 100;
+}
+
+@keyframes castFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ===== iPad / Tablet Responsive ===== */
+
+/* Tablet landscape (1024px - 1366px, e.g. iPad Pro landscape) */
+@media screen and (max-width: 1366px) and (min-width: 768px) {
+  .tv-left {
+    padding: 20px 24px;
+  }
+
+  .tv-control-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+    min-height: 48px; /* touch-friendly */
+    min-width: 48px;
+  }
+
+  .tv-voice-btn {
+    padding: 14px 24px;
+  }
+
+  .tv-pet-area {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 16px;
+    border-radius: 14px;
+  }
+
+  .tv-pet-emoji {
+    font-size: 40px;
+  }
+
+  .tv-pet-name {
+    font-size: 16px;
+  }
+}
+
+/* Tablet portrait (768px - 1024px) */
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .tv-main {
+    flex-direction: column;
+  }
+
+  .tv-left {
+    padding: 16px 20px;
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .tv-controls {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .tv-control-btn {
+    padding: 16px 20px;
+    font-size: 17px;
+    border-radius: 12px;
+    min-height: 52px;
+    flex: 1 1 auto;
+  }
+
+  .tv-voice-btn {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 18px 24px;
+    font-size: 18px;
+  }
+
+  .tv-pet-area {
+    bottom: 16px;
+    left: 16px;
+    right: auto;
+  }
+}
+
+/* Small tablet / large phone (under 768px) */
+@media screen and (max-width: 767px) {
+  .tv-left {
+    padding: 12px 16px;
+  }
+
+  .tv-controls {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .tv-control-btn {
+    padding: 16px;
+    font-size: 16px;
+    min-height: 52px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .tv-pet-area {
+    bottom: 12px;
+    left: 12px;
+    padding: 8px 14px;
+    border-radius: 12px;
+  }
+
+  .tv-pet-emoji {
+    font-size: 32px;
+  }
+
+  .tv-pet-name {
+    font-size: 14px;
+  }
+}
+
+/* Touch device enhancements */
+@media (hover: none) and (pointer: coarse) {
+  .tv-control-btn {
+    min-height: 48px;
+    min-width: 48px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .tv-control-btn:active {
+    transform: scale(0.96);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .tv-voice-btn:active {
+    transform: scale(0.96);
+    background: rgba(99, 102, 241, 0.3);
+  }
+}
+
+/* Landscape with short height (iPad mini landscape, etc.) */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .tv-left {
+    padding: 12px 24px;
+  }
+
+  .tv-controls {
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  .tv-control-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .tv-pet-area {
+    bottom: 10px;
+    left: 10px;
+    padding: 6px 12px;
+  }
+
+  .tv-pet-emoji {
+    font-size: 28px;
+  }
+
+  .tv-pet-name {
+    font-size: 13px;
+  }
+}

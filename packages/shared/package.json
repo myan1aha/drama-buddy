@@ -1,0 +1,23 @@
+{
+  "name": "@drama-buddy/shared",
+  "version": "0.1.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./hooks/*": "./src/hooks/*",
+    "./components/*": "./src/components/*",
+    "./utils/*": "./src/utils/*",
+    "./pet": "./src/pet/index.ts",
+    "./knowledge": "./src/knowledge/index.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'no tests yet'"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0",
+    "typescript": "^5.4.0"
+  }
+}

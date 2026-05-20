@@ -1,0 +1,71 @@
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  background: rgba(10, 10, 15, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.status-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.connected {
+  background: #22c55e;
+}
+
+.status-dot.disconnected {
+  background: #ef4444;
+}
+
+.status-drama {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.status-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-time {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+
+/* iPad responsive */
+@media screen and (max-width: 1024px) {
+  .status-bar {
+    padding: 10px 20px;
+  }
+
+  .status-drama {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .status-bar {
+    padding: 8px 16px;
+  }
+
+  .status-drama {
+    font-size: 14px;
+  }
+
+  .status-time {
+    font-size: 12px;
+  }
+}

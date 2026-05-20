@@ -1,0 +1,18 @@
+{
+  "name": "drama-buddy",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:server": "turbo dev --filter=@drama-buddy/server",
+    "build": "turbo build",
+    "test": "turbo test",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  }
+}

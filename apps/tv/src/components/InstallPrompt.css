@@ -1,0 +1,92 @@
+.install-prompt {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: slideUp 0.4s ease-out;
+}
+
+.install-prompt-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(30, 30, 40, 0.95);
+  border: 1px solid rgba(124, 92, 252, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+}
+
+.install-prompt-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.install-prompt-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.install-prompt-text strong {
+  font-size: 15px;
+  color: #fff;
+}
+
+.install-share-icon {
+  display: inline-block;
+  background: rgba(124, 92, 252, 0.2);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-size: 12px;
+}
+
+.install-prompt-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.install-prompt-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* iPad portrait: 提示居中且更宽 */
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .install-prompt {
+    bottom: 100px;
+  }
+
+  .install-prompt-content {
+    max-width: 360px;
+    padding: 16px 20px;
+  }
+}
