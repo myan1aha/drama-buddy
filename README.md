@@ -467,4 +467,6 @@ ssh -T git@github.com
 
 ## License
 
-当前仓库未单独声明 License，如需开源或对外分发，建议后续补充。
+本项目基于 `MIT` License 开源。
+
+详细内容请查看 [LICENSE](file:///Users/bytedance/Downloads/drama-buddy/LICENSE)。
