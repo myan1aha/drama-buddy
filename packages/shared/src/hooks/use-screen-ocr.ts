@@ -104,13 +104,14 @@ export function useScreenOCR({ serverUrl }: UseScreenOCROptions): UseScreenOCRRe
 
 /** Tauri native: call Rust capture_screen command */
 async function captureTauriScreen(): Promise<Blob> {
-  // Dynamic import — only resolves in Tauri environment
-  // @ts-ignore — module may not exist in non-Tauri contexts
-  const { invoke } = await import(/* @vite-ignore */ '@tauri-apps/api/core');
+  // Resolve the Tauri API only at runtime so shared code stays buildable
+  // without taking a hard type-time dependency on desktop-only modules.
+  const loadTauriCore = new Function(
+    'return import("@tauri-apps/api/core")'
+  ) as () => Promise<{ invoke: (cmd: string) => Promise<{ base64: string; width: number; height: number }> }>;
+  const { invoke } = await loadTauriCore();
 
-  const result = await (invoke as (cmd: string) => Promise<{ base64: string; width: number; height: number }>)(
-    'capture_screen'
-  );
+  const result = await invoke('capture_screen');
 
   // Convert base64 to Blob
   const binaryStr = atob(result.base64);
